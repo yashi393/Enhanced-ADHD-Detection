@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enhanced ADHD Detection through AI</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #0b0f1a;
+      --bg-card: rgba(255, 255, 255, 0.08);
+      --accent: #6cf2c2;
+      --accent-2: #7aa2ff;
+      --text-main: #ffffff;
+      --text-muted: #b7c0d8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #141b34, var(--bg-dark));
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 8%;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 30%, rgba(108, 242, 194, 0.15), transparent 70%);
+      animation: glow 6s infinite linear;
+    }
+
+    @keyframes glow {
+      0% { transform: translateX(-40%); }
+      100% { transform: translateX(40%); }
+    }
+
+    .hero-content {
+      max-width: 900px;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      background: rgba(108, 242, 194, 0.15);
+      color: var(--accent);
+      font-size: 0.9rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .cta {
+      display: inline-flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 0.8rem 1.8rem;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #000;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.25);
+      color: var(--text-main);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    /* ---------- SECTIONS ---------- */
+    section {
+      padding: 5rem 8%;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      max-width: 700px;
+      margin-bottom: 3rem;
+    }
+
+    /* ---------- GRID CARDS ---------- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      backdrop-filter: blur(14px);
+      border-radius: 18px;
+      padding: 1.8rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ---------- FLOW ---------- */
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      text-align: center;
+    }
+
+    .flow-step {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+      border-radius: 18px;
+      padding: 2rem 1.5rem;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .flow-step span {
+      display: inline-block;
+      margin-bottom: 0.8rem;
+      font-size: 2rem;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      padding: 3rem 8% 4rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.4rem; }
+      section { padding: 4rem 6%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-content">
+      <div class="badge">AI + Healthcare Innovation</div>
+      <h1>Enhanced <span>ADHD Detection</span><br>Through Artificial Intelligence</h1>
+      <p>
+        A smart, data-driven system designed to identify early ADHD indicators
+        using machine learning and behavioural pattern analysis — enabling
+        faster insights and better decision support.
+      </p>
+      <div class="cta">
+        <button class="btn btn-primary">View Project Overview</button>
+        <button class="btn btn-outline">ML Workflow</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- OBJECTIVES -->
+  <section>
+    <h2 class="section-title">Project Objectives</h2>
+    <p class="section-sub">Focused on early detection, explainability, and real-world usability.</p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Early ADHD Indication</h3>
+        <p>Detect potential ADHD traits at an early stage using AI-powered behavioural analysis.</p>
+      </div>
+      <div class="card">
+        <h3>Data-Driven Insights</h3>
+        <p>Analyze cognitive, attention-based, and interaction patterns from structured datasets.</p>
+      </div>
+      <div class="card">
+        <h3>Decision Support</h3>
+        <p>Provide interpretable results to support educators, clinicians, and caregivers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section>
+    <h2 class="section-title">Technology Stack</h2>
+    <p class="section-sub">Built using modern machine learning and data science tools.</p>
+
+    <div class="grid">
+      <div class="card"><h3>Python</h3><p>Core programming language for data processing and modeling.</p></div>
+      <div class="card"><h3>Machine Learning</h3><p>Classification models to predict ADHD likelihood.</p></div>
+      <div class="card"><h3>TensorFlow</h3><p>Deep learning framework for model training and evaluation.</p></div>
+      <div class="card"><h3>Flask</h3><p>Lightweight backend for future model deployment.</p></div>
+    </div>
+  </section>
+
+  <!-- WORKFLOW -->
+  <section>
+    <h2 class="section-title">AI Workflow</h2>
+    <p class="section-sub">High-level system pipeline used in the project.</p>
+
+    <div class="flow">
+      <div class="flow-step"><span>📊</span><h3>Data Collection</h3><p>Behavioural & cognitive datasets</p></div>
+      <div class="flow-step"><span>🧹</span><h3>Preprocessing</h3><p>Cleaning, normalization & feature selection</p></div>
+      <div class="flow-step"><span>🤖</span><h3>Model Training</h3><p>ML algorithms & evaluation</p></div>
+      <div class="flow-step"><span>📈</span><h3>Prediction</h3><p>Risk score & insights generation</p></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    Designed as a project showcase • Enhanced ADHD Detection through AI<br>
+    <span style="opacity:0.7">Concept UI for portfolio presentation</span>
+  </footer>
+
+</body>
+</html>
